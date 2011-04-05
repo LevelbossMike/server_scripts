@@ -18,4 +18,4 @@ smtpd_tls_CAfile = /etc/postfix/ssl/cacert.pem
 smtpd_tls_received_header = yes
 smtpd_tls_loglevel = 1
 smtpd_tls_session_cache_timeout = 3600s
-tls_random_source = dev:/dev/urandom:
+tls_random_source = dev:/dev/urandom
