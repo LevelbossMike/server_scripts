@@ -19,14 +19,13 @@ sudo adduser postfix sasl
 
 # create certificates for TLS
 sudo mkdir /etc/postfix/ssl/
-sudo cd /etc/postfix/ssl/
-sudo openssl genrsa -des3 -rand /etc/hosts -out smtpd.key 1024
-sudo chmod 600 smtpd.key
-sudo openssl req -new -key smtpd.key -out smtpd.csr
-sudo openssl x509 -req -days 3650 -in smtpd.csr -signkey smtpd.key -out smtpd.crt
-sudo openssl rsa -in smtpd.key -out smtpd.key.unencrypted
-sudo mv -f smtpd.key.unencrypted smtpd.key
-sudo openssl req -new -x509 -extensions v3_ca -keyout cakey.pem -out cacert.pem -days 3650
+sudo openssl genrsa -des3 -rand /etc/hosts -out /etc/postfix/ssl/smtpd.key 1024
+sudo chmod 600 /etc/postfix/ssl/smtpd.key
+sudo openssl req -new -key /etc/postfix/ssl/smtpd.key -out  /etc/postfix/ssl/mtpd.csr
+sudo openssl x509 -req -days 3650 -in /etc/postfix/ssl/smtpd.csr -signkey /etc/postfix/ssl/smtpd.key -out /etc/postfix/ssl/smtpd.crt
+sudo openssl rsa -in /etc/postfix/ssl/smtpd.key -out /etc/postfix/ssl/smtpd.key.unencrypted
+sudo mv -f /etc/postfix/ssl/smtpd.key.unencrypted /etc/postfix/ssl/smtpd.key
+sudo openssl req -new -x509 -extensions v3_ca -keyout /etc/postfix/ssl/cakey.pem -out /etc/postfix/ssl/cacert.pem -days 3650
 
 # restart postfix and saslauthd
 sudo /etc/init.d/postfix restart
