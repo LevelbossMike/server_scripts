@@ -21,7 +21,7 @@ sudo adduser postfix sasl
 sudo mkdir /etc/postfix/ssl/
 sudo openssl genrsa -des3 -rand /etc/hosts -out /etc/postfix/ssl/smtpd.key 1024
 sudo chmod 600 /etc/postfix/ssl/smtpd.key
-sudo openssl req -new -key /etc/postfix/ssl/smtpd.key -out  /etc/postfix/ssl/mtpd.csr
+sudo openssl req -new -key /etc/postfix/ssl/smtpd.key -out  /etc/postfix/ssl/smtpd.csr
 sudo openssl x509 -req -days 3650 -in /etc/postfix/ssl/smtpd.csr -signkey /etc/postfix/ssl/smtpd.key -out /etc/postfix/ssl/smtpd.crt
 sudo openssl rsa -in /etc/postfix/ssl/smtpd.key -out /etc/postfix/ssl/smtpd.key.unencrypted
 sudo mv -f /etc/postfix/ssl/smtpd.key.unencrypted /etc/postfix/ssl/smtpd.key
