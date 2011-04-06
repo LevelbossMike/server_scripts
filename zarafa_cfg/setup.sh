@@ -1,3 +1,3 @@
-sudo ../apache_cfg/setup.sh
-sudo ../mysql_cfg/setup.sh
-sudo ../postfix_cfg/setup.sh
+sudo bash ../apache_cfg/setup.sh
+sudo bash ../mysql_cfg/setup.sh
+sudo bash ../postfix_cfg/setup.sh
