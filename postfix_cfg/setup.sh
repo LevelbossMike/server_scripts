@@ -9,10 +9,10 @@ sudo apt-get install postfix libsasl2-2 sasl2-bin libsasl2-modules
 # stop postfix and configure it 
 sudo /etc/init.d/postfix stop
 # safe default or old postfix main.cf
-if [ ! -f ~/etc/postfix/main.cf_old ]; then
-  cp ~/etc/postfix/main.cf ~/etc/postfix/main.cf_old
+if [ ! -f /etc/postfix/main.cf_old ]; then
+  cp /etc/postfix/main.cf /etc/postfix/main.cf_old
 fi
-cp ~/etc/postfix/main.cf_old ~/etc/postfix/main.cf
+cp /etc/postfix/main.cf_old /etc/postfix/main.cf
 sudo cat add_to_main >> /etc/postfix/main.cf
 sudo cat smtpd_auth_cfg > /etc/postfix/sasl/smtpd.conf
 
